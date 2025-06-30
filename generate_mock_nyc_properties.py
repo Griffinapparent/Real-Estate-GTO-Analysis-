@@ -15,8 +15,10 @@ ZONING_CODES = ["C6-1", "C6-2", "C5-3", "M1-6", "R10"]
 
 COMPANY_SUFFIXES = ["Capital", "Partners", "Group", "Holdings", "Properties"]
 
+
 def generate_company_name():
     return f"{fake.last_name()} {random.choice(COMPANY_SUFFIXES)}"
+
 
 def generate_property(neighborhood):
     square_footage = random.randint(50000, 1000000)
@@ -54,12 +56,15 @@ def generate_property(neighborhood):
         ]
     }
 
+
 def generate_properties(count=10, neighborhood="Midtown Manhattan"):
     return [generate_property(neighborhood) for _ in range(count)]
+
 
 def save_to_file(data, filename="mock_properties.json"):
     with open(filename, "w") as f:
         json.dump(data, f, indent=2)
+
 
 if __name__ == "__main__":
     import argparse
